@@ -1,5 +1,6 @@
 package com.example.wallpaperapp.data.api
 
+import android.util.Log
 import com.example.wallpaperapp.Utils.Resource
 import com.example.wallpaperapp.domain.entity.WallpaperLink
 import com.example.wallpaperapp.domain.repository.WallpaperRepository
@@ -22,6 +23,7 @@ class WallpaperRepostiryImpl @Inject constructor(val picSumApi: PicSumApi) : Wal
                 emit(Resource.Success(wallpaperLinks))
             }
         } catch (e: Exception) {
+            Log.e("Error", "Error fetching wallpaper images: $e")
             var errorOutput = ""
             if (e.message != null) {
                 errorOutput = e.message!!

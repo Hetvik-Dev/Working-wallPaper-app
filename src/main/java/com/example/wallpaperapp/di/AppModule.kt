@@ -25,7 +25,7 @@ interface AppModule {
         fun provideRetrofitApi(): PicSumApi {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create()) // A
                 .build().create(PicSumApi::class.java)
         }
 

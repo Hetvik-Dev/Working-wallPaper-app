@@ -11,7 +11,7 @@ interface PicSumApi {
 
     @GET(END_POINT)
     suspend fun getWallpaperImages( // todo
-        @Query("page") page : Int = 1, @Query("limit") limit: Int = 100
+        @Query("page") page : Int = 3, @Query("limit") limit: Int = 100
     ): List<PicSumItem>?
 
 }
