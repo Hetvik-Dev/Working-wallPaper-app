@@ -18,4 +18,9 @@
     <color name="very_light_blue">#ADD8E6</color>
     <color name="light_orange">#FFD7BE</color>
 
+        <color name="lavender">#8692f7</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
