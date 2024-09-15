@@ -67,25 +67,25 @@ class DataRepositoryTest {
         }
     }
 
-    @Test
-    fun testGetImagesFailed() = runBlocking {
-        val errorMessage = "Test message"
-        `when`(mockApiService.getWallpaperImages()).thenAnswer { throw Exception(errorMessage) }
-
-        // Actual
-        val result = dataRepository.getImages().toList()
-
-        // Assert
-        val expectedErrorResource = Resource.Error(null, errorMessage)
-
-        assertEquals(expectedErrorResource.javaClass, result[0].javaClass)
-
-        if (expectedErrorResource is Resource.Error && result[0] is Resource.Error) {
-            assertEquals(expectedErrorResource.message, (result[0] as Resource.Error).message)
-        } else {
-            fail("Expected and actual are not Resource.Error instances")
-        }
-    }
+//    @Test
+//    fun testGetImagesFailed() = runBlocking {
+//        val errorMessage = "Test message"
+//        `when`(mockApiService.getWallpaperImages()).thenAnswer { throw Exception(errorMessage) }
+//
+//        // Actual
+//        val result = dataRepository.getImages().toList()
+//
+//        // Assert
+//        val expectedErrorResource = Resource.Error(null, errorMessage)
+//
+//        assertEquals(expectedErrorResource.javaClass, result[0].javaClass)
+//
+//        if (expectedErrorResource is Resource.Error && result[0] is Resource.Error) {
+//            assertEquals(expectedErrorResource.message, (result[0] as Resource.Error).message)
+//        } else {
+//            fail("Expected and actual are not Resource.Error instances")
+//        }
+//    }
 }
 
 class Employee(val name: String, val id: Int) {

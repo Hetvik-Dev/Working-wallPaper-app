@@ -49,6 +49,7 @@ dependencies {
     // hilt dagger
     implementation("com.google.dagger:hilt-android:2.48")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
+    implementation("androidx.activity:activity:1.9.1")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     //navigation

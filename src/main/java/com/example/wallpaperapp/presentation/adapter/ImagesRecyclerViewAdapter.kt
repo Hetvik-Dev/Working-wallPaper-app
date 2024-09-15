@@ -49,9 +49,10 @@ class ImagesRecyclerViewAdapter(private var dataSet: List<WallpaperLink>, privat
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet?.size ?: 0}
+    override fun getItemCount() = dataSet?.size ?: 0
+    }
 
 
-interface ItemOnClickListener { // convert this to a lamda
+interface ItemOnClickListener { // converting this to lamda
     fun onClickImage(wallpaperLink: String): Unit
 }

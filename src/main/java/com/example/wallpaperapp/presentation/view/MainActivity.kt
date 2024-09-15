@@ -1,5 +1,7 @@
 package com.example.wallpaperapp.presentation.view
 
+import android.app.WallpaperManager
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +22,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
+import java.io.IOException
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -94,7 +100,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickImage(wallpaperLink: String) {
+        // Create a new instance of WallpaperManager
+           val wallpaperManager = WallpaperManager.getInstance(this)
 
+           // Download the image using Glide and set it as wallpaper
+            Glide.with(this)
+            .asBitmap()
+            .load(wallpaperLink)
+            .into(object : SimpleTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    try {
+                        // Set the wallpaper
+                        wallpaperManager.setBitmap(resource)
+
+                        // Show a toast to confirm the change
+                        Toast.makeText(this@MainActivity, "Wallpaper changed successfully", Toast.LENGTH_SHORT).show()
+                    } catch (e: IOException) {
+                        // Handle the exception
+                        Toast.makeText(this@MainActivity, "Failed to change wallpaper", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
     }
-
 }
