@@ -5,6 +5,10 @@
         android:title="Home"
         android:icon="@drawable/home"/>
 
+<!--    <item android:id="@+id/top_artists"-->
+<!--        android:title="Top Artists"-->
+<!--        android:icon="@drawable/compition"/>-->
+
     <item
         android:id="@+id/subscriptions"
         android:title="Arts"
