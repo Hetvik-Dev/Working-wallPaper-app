@@ -66,18 +66,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@color/light_orange"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/light_orange">
 
             <ImageView
                 android:id="@+id/iv_register_username"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="110dp"
-                android:src="@drawable/user"
                 android:scaleType="fitXY"
+                android:src="@drawable/user"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/et_register_username"
@@ -85,13 +85,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="48dp"
+                android:background="@color/light_orange"
                 android:hint="Username"
                 android:textColorHint="@color/black"
-                android:background="@color/light_orange"
-                app:layout_constraintStart_toEndOf="@id/iv_register_username"
+                app:layout_constraintBottom_toBottomOf="@id/iv_register_username"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_register_username"
-                app:layout_constraintBottom_toBottomOf="@id/iv_register_username"/>
+                app:layout_constraintStart_toEndOf="@id/iv_register_username"
+                app:layout_constraintTop_toTopOf="@id/iv_register_username" />
 
             <View
                 android:id="@+id/view1"
@@ -100,7 +100,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@android:color/darker_gray"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_register_username"/>
+                app:layout_constraintTop_toBottomOf="@id/iv_register_username" />
 
             <ImageView
                 android:id="@+id/iv_register_password"
@@ -108,10 +108,10 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="110dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/lock"
                 android:scaleType="fitXY"
+                android:src="@drawable/lock"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view1"/>
+                app:layout_constraintTop_toBottomOf="@id/view1" />
 
             <EditText
                 android:id="@+id/et_register_password"
@@ -119,13 +119,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="48dp"
+                android:background="@color/light_orange"
                 android:hint="Password"
                 android:textColorHint="@color/black"
-                android:background="@color/light_orange"
-                app:layout_constraintStart_toEndOf="@id/iv_register_password"
+                app:layout_constraintBottom_toBottomOf="@id/iv_register_password"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_register_password"
-                app:layout_constraintBottom_toBottomOf="@id/iv_register_password"/>
+                app:layout_constraintStart_toEndOf="@id/iv_register_password"
+                app:layout_constraintTop_toTopOf="@id/iv_register_password" />
 
             <View
                 android:id="@+id/view2"
@@ -142,11 +142,11 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="110dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/email"
                 android:scaleType="fitXY"
+                android:src="@drawable/email"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view2"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/view2" />
 
             <EditText
                 android:id="@+id/et_register_email"
@@ -154,16 +154,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="48dp"
+                android:background="@color/light_orange"
                 android:hint="Email Address"
                 android:textColorHint="@color/black"
-                android:background="@color/light_orange"
-                app:layout_constraintStart_toEndOf="@id/iv_register_email"
+                app:layout_constraintBottom_toBottomOf="@id/iv_register_email"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_register_email"
-                app:layout_constraintBottom_toBottomOf="@id/iv_register_email"/>
+                app:layout_constraintStart_toEndOf="@id/iv_register_email"
+                app:layout_constraintTop_toTopOf="@id/iv_register_email" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/progress_bar_drawable"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="@id/cv_container"
+        app:layout_constraintEnd_toEndOf="@id/cv_container"
+        app:layout_constraintTop_toBottomOf="@id/cv_container" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="70dp"

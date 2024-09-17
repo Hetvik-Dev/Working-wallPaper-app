@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,9 @@ import kotlinx.coroutines.launch
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
+import com.example.wallpaperapp.R
+import com.example.wallpaperapp.presentation.fragments.ArtFragment
+import com.example.wallpaperapp.presentation.fragments.MeFragment
 import java.io.IOException
 
 @AndroidEntryPoint
@@ -39,9 +43,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         getSupportActionBar()?.setDisplayShowTitleEnabled(false);
 
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+//                R.id.navigate_home -> replaceFragment(MainActivity())
+                R.id.navigate_arts -> replaceFragment(ArtFragment())
+                R.id.navigate_me -> replaceFragment(MeFragment())
+            }
+            true
+        }
+
         setupViews()
         collectUiState()
         wallpaperViewModel.fetchWallpapers()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
     }
 
     fun setupViews() {

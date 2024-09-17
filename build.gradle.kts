@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 // Allow references to generated code
@@ -50,6 +51,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     implementation("androidx.activity:activity:1.9.1")
+    implementation("com.google.firebase:firebase-auth:23.0.0")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     //navigation
@@ -79,6 +81,9 @@ dependencies {
 
     //material UI
     implementation("com.google.android.material:material:1.6.1")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
 
 
     implementation("androidx.core:core-ktx:1.12.0")
